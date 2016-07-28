@@ -64,7 +64,7 @@ func CreateEncryptedSignature(key []byte, content string) (signature string) {
 	var signatureByte []byte
 	var err error
 
-	if signatureByte, err = Encrypt(key,[]byte(CreateSignature(content)); err != nil {
+	if signatureByte, err = Encrypt(key,[]byte(CreateSignature(content))); err != nil {
 		panic(err.Error())
 	}
 
