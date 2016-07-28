@@ -61,15 +61,8 @@ func Decrypt(key []byte, encryptedtext string) (plaintext []byte, err error) {
 
 }
 func CreateEncryptedSignature(key []byte, content string) (signature string) {
-	h256 := sha256.New()
-	md5 := md5.New()
 
-	h256.Write([]byte(content))
-	md5.Write(h256.Sum(nil))
-	var signatureByte []byte
-	var err error
-
-	if signatureByte, err = Encrypt(key,md5.Sum(nil)); err != nil {
+	if signatureByte, err = Encrypt(key,CreateSignature(content)); err != nil {
 		panic(err.Error())
 	}
 
