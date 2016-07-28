@@ -85,7 +85,7 @@ func CreateSignature(content string) (signature string) {
 	h256.Write([]byte(content))
 	md5.Write(h256.Sum(nil))
 
-	signature = md5.Sum(nil)
+	signature = string(md5.Sum(nil)[:])
 
 	return
 }
