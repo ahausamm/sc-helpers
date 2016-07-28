@@ -67,9 +67,7 @@ func CreateEncryptedSignature(key []byte, content string) (signature string) {
 	h256.Write([]byte(content))
 	md5.Write(h256.Sum(nil))
 
-	if signature, err = Encrypt(key,md5.Sum(nil)); err != nil {
-		panic(err.Error())
-	}
+	signature = Encrypt(key,md5.Sum(nil))
 
 	return
 
